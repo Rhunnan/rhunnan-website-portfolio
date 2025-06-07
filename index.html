@@ -10,25 +10,24 @@
     <header class="headers">
             <a href="#"><p class="logo">Rhunnan.</p></a>
             <nav class="menus">
-                <a href="#">Home</a>
-                <a href="#About">About</a>
-                <a href="#Skills">Skills</a>
-                <a href="#Portfolio">Portfolio</a>
-                <a href="#Contact">Contact</a>
-                <i class='bx  bx-sun'  ></i> 
+                <a href="#" class="web-nav">Home</a>
+                <a href="#About" class="web-nav">About</a>
+                <a href="#Skills" class="web-nav">Skills</a>
+                <a href="#Portfolio" class="web-nav">Portfolio</a>
+                <a href="#Contact" class="web-nav">Contact</a>
+                <i class='bx  bx-sun web-nav'  ></i> 
                 <button id="cp-menu-button"><i class="fa-solid fa-bars hidden-icon" ></i></button>
             </nav>
-            
-    </header>
-    <body>
-        <nav class="cp-menus">
+               <nav class="cp-menus">
                 <a href="#" class="cp-menus-nav">Home</a>
                 <a href="#About" class="cp-menus-nav">About</a>
                 <a href="#Skills" class="cp-menus-nav">Skills</a>
                 <a href="#Portfolio" class="cp-menus-nav">Portfolio</a>
                 <a href="#Contact" class="cp-menus-nav">Contact</a>
-                <i class="fa-solid fa-xmark" class="cp-menus-nav"></i>                
+                <i class="fa-solid fa-xmark cp-menus-nav"></i>                
             </nav>
+    </header>
+    <body>
         <section id="Home">
             <div class="content">
             <div class="content-text">
@@ -118,10 +117,6 @@
                 </div>
             </div>
         </section>
-    </body>
-    <footer>
-        <p>Copyright &copy; <span id="year"></span> Rhunnan Dwight Liao. All rights reserved.</p>
-    </footer>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
     window.onload = function (){
@@ -136,19 +131,43 @@
 
 
         const dateNow = new Date().getFullYear();
-        const cp_menus_navs = document.querySelectorAll(".cp_menus_navs");
+        const cp_menus_navs = document.querySelectorAll(".cp-menus-nav");
         const cp_menu = document.getElementsByClassName("cp-menus")[0];
+        const logo = document.getElementsByClassName("logo")[0];
+        const modeIcon = document.getElementsByClassName("bx")[0];
+        const cp_menu_button = document.getElementById("cp-menu-button");
+        const menus_web_screen = document.getElementsByClassName("menus")[0];
+        const viewport_width = window.innerWidth;
+
+        if(viewport_width > 576){
+            cp_menu.style.display = "none"
+        }
+        console.log(cp_menus_navs)
+        console.log(cp_menu)    
+        
 
         cp_menus_navs.forEach(el => {
             el.addEventListener("click", function() {
                 console.log("hide buttons");
                 cp_menu.style.display = "none";
+                menus_web_screen.style.display = "flex"
+                cp_menu_button.style.display = "block"
+                logo.style.display = "block"
+                modeIcon.style.display = "block"
+
+
+
             })
         })
         // shows the menu in cellphone screenviewpoert
         const cp_button_menu = document.getElementById("cp-menu-button").addEventListener("click", function (){
             if (cp_menu.style.display === "none" || cp_menu.style.display === ""){
                 cp_menu.style.display = "flex";
+                modeIcon.style.display = "none"
+                logo.style.display = "none"
+                cp_menu_button.style.display = "none"
+                menus_web_screen.style.display = "none"
+                
             }else{
                 cp_menu.style.display = "none";
             }
@@ -181,4 +200,9 @@
     };
      
     </script>   
+    </body>
+    <footer>
+        <p>Copyright &copy; <span id="year"></span> Rhunnan Dwight Liao. All rights reserved.</p>
+    </footer>
+    
 </html>

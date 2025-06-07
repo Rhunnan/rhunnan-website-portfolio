@@ -95,7 +95,7 @@ body {
     display: none;
 }
 
-.fa-solid {
+#cp-menu-button, .cp-menus{
     display: none;
 }
 
@@ -352,6 +352,9 @@ textarea {
         display: none;
     }
     
+    .cp-menus {
+        display: none;
+    }
     .button {
         height: 30px;
         width: 160px;
@@ -378,10 +381,11 @@ textarea {
     .cp-menus {
         flex-direction: column;
         display: hidden;
-        position: absolute;
+        position: sticky;
         z-index: 1000;
         right: 0;
-        top: 0;
+        top: 20px;
+        width: 100%;
     
     }
 
@@ -394,7 +398,7 @@ textarea {
         left: 5px;
     }
 
-    .fa-solid {
+    #cp-menu-button{
         display: block;
     }
 }
