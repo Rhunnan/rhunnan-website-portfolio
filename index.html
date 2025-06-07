@@ -16,9 +16,19 @@
                 <a href="#Portfolio">Portfolio</a>
                 <a href="#Contact">Contact</a>
                 <i class='bx  bx-sun'  ></i> 
+                <button id="cp-menu-button"><i class="fa-solid fa-bars hidden-icon" ></i></button>
             </nav>
+            
     </header>
     <body>
+        <nav class="cp-menus">
+                <a href="#" class="cp-menus-nav">Home</a>
+                <a href="#About" class="cp-menus-nav">About</a>
+                <a href="#Skills" class="cp-menus-nav">Skills</a>
+                <a href="#Portfolio" class="cp-menus-nav">Portfolio</a>
+                <a href="#Contact" class="cp-menus-nav">Contact</a>
+                <i class="fa-solid fa-xmark" class="cp-menus-nav"></i>                
+            </nav>
         <section id="Home">
             <div class="content">
             <div class="content-text">
@@ -46,8 +56,6 @@
                     
                 </div>
                 <a class="button" href="Rhunnan_dwight_liao_CV.pdf" download>Download CV</a>
-      
-                
             </div>
             <div class="profImage">
             </div>
@@ -116,7 +124,8 @@
     </footer>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        const observer = new IntersectionObserver((entries, observer) => {
+    window.onload = function (){
+           const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('run-animation');
@@ -127,6 +136,23 @@
 
 
         const dateNow = new Date().getFullYear();
+        const cp_menus_navs = document.querySelectorAll(".cp_menus_navs");
+        const cp_menu = document.getElementsByClassName("cp-menus")[0];
+
+        cp_menus_navs.forEach(el => {
+            el.addEventListener("click", function() {
+                console.log("hide buttons");
+                cp_menu.style.display = "none";
+            })
+        })
+        // shows the menu in cellphone screenviewpoert
+        const cp_button_menu = document.getElementById("cp-menu-button").addEventListener("click", function (){
+            if (cp_menu.style.display === "none" || cp_menu.style.display === ""){
+                cp_menu.style.display = "flex";
+            }else{
+                cp_menu.style.display = "none";
+            }
+        });
 
         dateVar = document.getElementById("year").innerHTML= dateNow;
         document.querySelectorAll('.animate-on-scroll').forEach(el =>   {
@@ -152,5 +178,7 @@
             console.log("FAILED", error);
             });
         });
+    };
+     
     </script>   
 </html>
