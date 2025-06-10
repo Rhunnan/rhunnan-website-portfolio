@@ -126,7 +126,7 @@ body {
     width: 100vw;
     height: 100vh;
     justify-content: center;
-    align-items: center;
+    align-items:center;
     column-gap: 50px;
 }
 
@@ -137,8 +137,6 @@ body {
     margin: 0;
     width: 41%;
     height: 70%;
-    opacity: 0;
-    transform: translateX(-100%);
     animation: slideInL 1s ease-out forwards;
 }
 
@@ -153,8 +151,6 @@ body {
     background-color: var(--img-background-color);
     overflow: hidden;
     border-radius: 50%;
-    transform: translateX(200%);
-    animation: slideInR 1s ease-out forwards;
 }
 
 .profImage-2 {
@@ -167,8 +163,6 @@ body {
     height: 350px;
     background-color: var(--img-background-color);
     overflow: hidden;
-    transform: translateX(200%);
-    animation: slideInR 1s ease-out forwards;
 }
 
 
@@ -178,6 +172,11 @@ img {
     left: 20%;
     height:120%;
     width:60%;
+}
+
+.portfolio-content {
+    width: 300px;
+    height: 300px;
 }
 
 h3 {
@@ -619,7 +618,7 @@ textarea {
 
 /* animation slide from left to right*/
 .run-animation {
-    animation: fadeOut 1s ease-in forwards;
+    animation: fadeOut 1s ease-in forwards, fadeSlideIn 3s, ease-in forwards;
 }
 
 @keyframes slideInL {
@@ -635,6 +634,17 @@ textarea {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 /* Animation: move from right to left */
 @keyframes scrollSkills {
