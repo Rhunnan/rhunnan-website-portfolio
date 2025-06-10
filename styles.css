@@ -176,7 +176,7 @@ img {
 
 .portfolio-content {
     width: 300px;
-    height: 300px;
+    height: 250px;
 }
 
 h3 {
@@ -459,6 +459,9 @@ textarea {
 
 @media (max-width: 576px){
 
+    .small-in-cp {
+    font-size: 1rem;
+}
     .profImage-2 {
         display: none;
     }
